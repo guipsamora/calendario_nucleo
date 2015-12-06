@@ -1,44 +1,53 @@
 
-  <p class="title">Calendário de Atividades</p>
-  <div id="calendar"></div>
+<p class="title">Calendário de Atividades</p>
 
-      <div class="container atividades">
-        <p class="title-2">Atividades Próximas</p>
-          
-        <div>
-          <%= link_to 'Lista Completa', events_path, class: "btn btn-default" %>
-          <%= link_to 'Novo Evento', new_event_path, class: "btn btn-default" %>
-        </div>
-        
-        <% @events.each do |event| %>
-        
-          <div class="event jumbotron">
-            <h3><strong>Evento <%= event.id %> - <%= event.nome %> </strong><span class="label label-primary"> <%= event.pilar %> </span></h3>
-            <hr>
-            <div class="row info">
-              <div class="col-xs-3">
-                <p><span class="label label-default">Ciclo</span> <%= event.ciclo %> </p>
-                <p><span class="label label-warning">Local</span> <%= event.local %> </p>
-              </div>
-              <div class="col-xs-3">
-                <p><strong>Início </strong><%= event.hora_inicio.to_formatted_s(:short) %> </p>
-                <p><strong>Final </strong><%= event.hora_fim.to_formatted_s(:short) %> </p>
-                     
-              </div>
-              <div class="col-xs-6">
-                <p><strong>Descrição </strong><%= event.descricao %> </p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12">
-                <p><%= link_to 'Editar', edit_event_path(event), class: "btn btn-default" %> <%= link_to 'Deletar', event_path(event), method: :delete, data: {confirm: 'Deseja Excluir?'}, class: "btn btn-default" %></p>
-              </div>
-            </div>  
-          </div>
-        
-        <% end %>
-        
-        <%= link_to 'Lista Completa', events_path, class: "btn btn-default" %>
-        <%= link_to 'Novo Evento', new_event_path, class: "btn btn-default" %>
+<div class="actions">
+  <%= link_to 'Lista Completa', events_path, class: "btn btn-default" %>
+  <%= link_to 'Novo Evento', new_event_path, class: "btn btn-default" %>
+</div>
+<br>
+<div id="calendar"></div>
+
+<div class="container atividades">
+  <p class="title-2">Próximas Atividades</p>
+    
+  <div>
+    <%= link_to 'Lista Completa', events_path, class: "btn btn-default" %>
+    <%= link_to 'Novo Evento', new_event_path, class: "btn btn-default" %>
+  </div>
   
+  <% @events.each do |event| %>
+  
+    <div class="event jumbotron">
+      <h3><strong><%= event.nome %> </strong><span class="label label-primary"> <%= event.pilar %> </span></h3>
+      <hr>
+      <div class="row info">
+        <div class="col-xs-6">
+          <p><strong>Início: </strong><%= event.hora_inicio.to_formatted_s(:short) %> </p>
+        </div>
+        <div class="col-xs-6">
+          <p><strong>Final: </strong><%= event.hora_fim.to_formatted_s(:short) %> </p>
+        </div>
+        <div class="col-xs-12">
+          <p><strong>Descrição: </strong><%= event.descricao %> </p>
+        </div>
+        <div class="col-xs-6">
+          <p><span class="label label-warning">Local</span> <%= event.local %> </p>
+        </div>
+        <div class="col-xs-6">
+          <p><span class="label label-default">Ciclo</span> <%= event.ciclo %> </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <p><%= link_to 'Editar', edit_event_path(event), class: "btn btn-default" %> <%= link_to 'Deletar', event_path(event), method: :delete, data: {confirm: 'Deseja excluir ' + event.nome + ' ?'}, class: "btn btn-default" %></p>
+        </div>
+      </div>  
     </div>
+  
+  <% end %>
+  
+  <%= link_to 'Lista Completa', events_path, class: "btn btn-default" %>
+  <%= link_to 'Novo Evento', new_event_path, class: "btn btn-default" %>
+
+</div>

@@ -10,20 +10,23 @@
 <% @events.each do |event| %>
 
 <div class="event jumbotron">
-  <h3><strong>Evento <%= event.id %> - <%= event.nome %> </strong><span class="label label-primary"> <%= event.pilar %> </span></h3>
+  <h3><strong><%= event.nome %> </strong><span class="label label-primary"> <%= event.pilar %> </span></h3>
   <hr>
   <div class="row info">
-    <div class="col-xs-3">
-      <p><span class="label label-default">Ciclo</span> <%= event.ciclo %> </p>
-      <p><span class="label label-warning">Local</span> <%= event.local %> </p>
-    </div>
-    <div class="col-xs-3">
-      <p><strong>Início </strong><%= event.hora_inicio.to_formatted_s(:short) %> </p>
-      <p><strong>Final </strong><%= event.hora_fim.to_formatted_s(:short) %> </p>
-           
+    <div class="col-xs-6">
+      <p><strong>Início: </strong><%= event.hora_inicio.to_formatted_s(:short) %> </p>
     </div>
     <div class="col-xs-6">
-      <p><strong>Descrição </strong><%= event.descricao %> </p>
+      <p><strong>Final: </strong><%= event.hora_fim.to_formatted_s(:short) %> </p>
+    </div>
+    <div class="col-xs-12">
+      <p><strong>Descrição: </strong><%= event.descricao %> </p>
+    </div>
+    <div class="col-xs-6">
+      <p><span class="label label-warning">Local</span> <%= event.local %> </p>
+    </div>
+    <div class="col-xs-6">
+      <p><span class="label label-default">Ciclo</span> <%= event.ciclo %> </p>
     </div>
   </div>
   <div class="row">
