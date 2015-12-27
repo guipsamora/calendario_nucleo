@@ -2,23 +2,36 @@
 
 <h3>Resumo do Evento</h3>
 <div class="event jumbotron">
-  <h3><strong><%= @event.nome %> </strong><span class="label label-primary"> <%= @event.pilar %> </span></h3>
+  <h3><strong><%= @event.nome  %> </strong>
+
+    <% case @event.pilar %>
+    <% when 'Redes' %>
+      <span class="label label-primary redes"> 
+    <% when 'Mercado' %>
+       <span class="label label-primary mercado"> 
+    <% when 'Propósito' %>
+       <span class="label label-primary proposito"> 
+    <% else %>
+      <span class="label label-primary"> 
+    <% end %>
+    <%= @event.pilar %> </span></h3>
+
   <hr>
   <div class="row info">
     <div class="col-xs-6">
-      <p><strong>Início: </strong><%= event.hora_inicio.to_formatted_s(:short) %> </p>
+      <p><strong>Início: </strong><%= @event.hora_inicio.to_formatted_s(:short) %></p>
     </div>
     <div class="col-xs-6">
-      <p><strong>Final: </strong><%= event.hora_fim.to_formatted_s(:short) %> </p>
+      <p><strong>Final: </strong><%= @event.hora_fim.to_formatted_s(:short) %> </p>
     </div>
     <div class="col-xs-12">
-      <p><strong>Descrição: </strong><%= event.descricao %> </p>
+      <p><strong>Descrição: </strong><%= @event.descricao %> </p>
     </div>
     <div class="col-xs-6">
-      <p><span class="label label-warning">Local</span> <%= event.local %> </p>
+      <p><span class="label label-warning">Local</span> <%= @event.local %> </p>
     </div>
     <div class="col-xs-6">
-      <p><span class="label label-default">Ciclo</span> <%= event.ciclo %> </p>
+      <p><span class="label label-default">Ciclo</span> <%= @event.ciclo %> </p>
     </div>
   </div>
   <div class="row">

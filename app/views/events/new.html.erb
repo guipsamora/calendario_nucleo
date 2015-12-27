@@ -23,7 +23,7 @@
  
   <p>
     <%= f.label :pilar %><br>
-    <%= f.text_field :pilar, class: "form-control" %>
+    <%= f.select :pilar, Event.pilares %>
   </p>
   
     <p>
@@ -38,12 +38,12 @@
   
   <p>
     <%= f.label :hora_inicio %><br>
-    <%= f.text_field :hora_inicio, class: "form-control" %>
+    <%= f.datetime_field :hora_inicio, class: "form-control" %>
   </p>
   
   <p>
     <%= f.label :hora_fim %><br>
-    <%= f.text_field :hora_fim, class: "form-control" %>
+    <%= f.datetime_field :hora_fim, class: "form-control" %>
   </p>
   
   <p>
